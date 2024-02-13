@@ -172,6 +172,7 @@ const textNodes = [
         options: [
             {
                 text: 'Get out of bed.',
+                setState: { undamaged: true },
                 nextText: 15
             },
             {
@@ -183,7 +184,7 @@ const textNodes = [
     },
     {
         id: 13,
-        text: "You are too tired and go back aeep. You have wonderful, sweet dreams, and never find out what the note on your fridge is all about.",
+        text: "You are too tired and go back aeep. You have wonderful, sweet dreams, and never find out what the note on your fridge is all about. GAME OVER.",
         options: [
             {
                 text: 'Restart.',
@@ -254,6 +255,7 @@ const textNodes = [
             },
             {
                 text: "Turn the paper over.",
+                setState: { knowsAddress: true },
                 nextText: 20
             },
             {
@@ -268,7 +270,7 @@ const textNodes = [
     },
     {
         id: 19,
-        text: "You get back into bed and go aeep. You have wonderful, sweet dreams, and never get Tattoo back. What is wrong with you???",
+        text: "You get back into bed and go aeep. You have wonderful, sweet dreams, and never get Tattoo back. What is wrong with you??? GAME OVER.",
         options: [
             {
                 text: 'Restart.',
@@ -282,22 +284,18 @@ const textNodes = [
         options: [
             {
                 text: 'Go aeep.',
-                setState: { knowsAddress: true },
                 nextText: 21
             },
             {
                 text: 'Flip the paper over and read the note again.',
-                setState: { knowsAddress: true },
                 nextText: 25
             },
             {
                 text: "Look around your apartment for equipment.",
-                setState: { knowsAddress: true },
                 nextText: 27
             },
             {
                 text: "Set out to find Tattoo immediately.",//Code in branch where you don't have any gear.
-                setState: { knowsAddress: true },
                 nextText: 31
             },
         ]
@@ -318,7 +316,7 @@ const textNodes = [
     },
     {
         id: 22,
-        text: "You get back into bed and go aeep. You have wonderful, sweet dreams, and never get Tattoo back. I gave you a second chance and everything this time! Really, what is wrong with you???",
+        text: "You get back into bed and go aeep. You have wonderful, sweet dreams, and never get Tattoo back. I gave you a second chance and everything this time! Really, what is wrong with you??? GAME OVER.",
         options: [
             {
                 text: "Restart.",
@@ -380,6 +378,7 @@ const textNodes = [
         options: [
             {
                 text: "Read the back side of the note again.",
+                setState: { knowsAddress: true },
                 nextText: 26
             },
             {
@@ -398,17 +397,14 @@ const textNodes = [
         options: [
             {
                 text: "Read front side of the note again.",
-                setState: { knowsAddress: true },
                 nextText: 25
             },
             {
                 text: "Look around your apartment for equipment.",
-                setState: { knowsAddress: true },
                 nextText: 27
             },
             {
                 text: "Set out to find Tattoo immediately.",
-                setState: { knowsAddress: true },
                 nextText: 31
             },
         ]
@@ -479,7 +475,7 @@ const textNodes = [
             {
                 text: "Go to 946998 Evil Street.",
                 requiredState: (currentState) => currentState.knowsAddress,
-                nextText: -1
+                nextText: 33
             },
         ]
     },
@@ -505,8 +501,624 @@ const textNodes = [
     },
     {
         id: 34,
-        text: ""
-    }
+        text: "On closer inspection, the door is reinforced with steel. A keypad sits on the wall to the left of the doorway. Instead of posessing numbers '0-9', the keypad only has a single button, '8'.",
+        options: [
+            {
+                text: "Try to open the door.",
+                nextText: 35
+            },
+            {
+                text: "Press the button on the keypad.",
+                nextText: 42
+            },
+        ]
+    },
+    {
+        id: 35,
+        text: "You try to push the door open, but it's locked tight.",
+        options: [
+            {
+                text: "Try the door again.",
+                nextText: 36
+            },
+            {
+                text: "Press the button on the keypad.",
+                nextText: 42
+            },
+        ]
+    },
+    {
+        id: 36,
+        text: "You... just tried the door. Are you stupid?",
+        options: [
+            {
+                text: "Try the door again.",
+                nextText: 37
+            },
+            {
+                text: "Press the button on the keypad.",
+                nextText: 42
+            },
+        ]
+    },
+    {
+        id: 37,
+        text: "Stop trying the fucking door!",
+        options: [
+            {
+                text: "Try the door again.",
+                nextText: 38
+            },
+            {
+                text: "Press the button on the keypad, I beg you.",
+                nextText: 42
+            },
+        ]
+    },
+    {
+        id: 38,
+        text: "The door heats up to an incomprhensibly high temperature. Please don't try it again or it will kill you and you'll have to start the game again.",
+        options: [
+            {
+                text: "Try the door again.",
+                nextText: 39
+            },
+            {
+                text: "Press the button on the keypad, PLEEEEEEASE.",
+                nextText: 42
+            },
+        ]
+    },
+    {
+        id: 39,
+        text: "You touch the door and... nothing happens? Shit. I messed up some code and the heat door is broken. Um, well. First, I can't believe you actually clicked on this after I told you it would kill you! You sure do seem to like messing with the game, don't you? Second, there was literally a SINGLE button you had to press and you messed that up. Like, Tattoo's been kidnapped, she's stuck inside this building, and all you had to do was press that button but NOOOO you had to keep trying the locked door, didn't you? I even labelled the button 8 because it's your favourite number and you just ignored it! Ugh. If you're not going to press the button I'll open the door for you. I'll even scale it up to your height so you don't have to crawl through. Congrats.",
+        options: [
+            {
+                text: "Go through the open door.",
+                nextText: 41
+            },
+            {
+                text: "Press the button.",
+                nextText: 40
+            },
+        ]
+    },
+    {
+        id: 40,
+        text: "Oh so NOW you press the button! You press the button and explode into flames. Ah, it seems I- I mean, Oottat, wired the door's heat defence system wrong and channelled all the heat into the button instead of the door! Oops. Sorry about that. GAME OVER.",
+        options: [
+            {
+                text: "Restart.",
+                nextText: -1
+            },
+        ]
+    },
+    {
+        id: 41,
+        text: "You walk through the doorway and enter Oottat's lair. The faint, florescent lights hanging from the ceiling struggle to light the interior. From what you can see, the grand chamber is made of concrete and metal. Darkness envelops the center of the room, so you walk along the perimeter of the room. You feel indents in the walls, etching out images and accompanying text in a language you can't read. It seems to be telling some kind of story. Fields of black-and-white cats, a light of some the descending from the sky and a sky beam consuming one of the cats. a white-and-black cat emerges. Is this... the origin of Oottat????",
+        options: [
+            {
+                text: "Continue into the room.",
+                nextText: 43
+            },
+        ]
+    },
+    {
+        id: 42,
+        text: "You press the button marked 8 and the door slides open. You squeeze through the small doorway and enter Oottat's lair. The faint, florescent lights hanging from the ceiling struggle to light the interior. From what you can see, the grand chamber is made of concrete and metal. Darkness envelops the center of the room, so you walk along the perimeter of the room. You feel indents in the walls, etching out images and accompanying text in a language you can't read. It seems to be telling some kind of story. There are fields of black-and-white cats, possibly Tattoo bears? A light of some kind descends from the sky and a sky beam consuming one of the bears. a white-and-black bear emerges. Is this... the origin of Oottat????",
+        options: [
+            {
+                text: "Continue into the room.",
+                nextText: 43
+            },
+        ]
+    },
+    {
+        id: 43,
+        text: "As you attempt to study the the murals, you hear the tip-tapping of small feet growing louder. You look across the chamber to see a small Tattoo bear approaching! Stepping into the light, you see the fluffy black creature has white patches of fur. Her purple eyes light up the area around her. This isn't Tattoo. It's Oottat!",
+        options: [
+            {
+                text: "Say 'Oottat!!! I've tracked you down, you evil one!'",
+                nextText: 44
+            },
+        ]
+    },
+    {
+        id: 44,
+        text: "Oottat smiles evilly. She says 'You'll never get your precious bear back! She'll stay here forever, and I'll siphon all of the cutenss out of her to power my evil machines! Now die, Ria of Stinky!'",
+        options: [
+            {
+                text: "Fight Oottat (No weapons).",
+                nextText: 45
+            },
+            {
+                text: "Fight Oottat (Use the Soft Food).",
+                requiredState: (currentState) => currentState.softFood,
+                nextText: 67
+            },
+            {
+                text: "Flee Oottat.",
+                setState: { legDamage: true, undamaged: false },
+                nextText: 46
+            },
+        ]
+    },
+    {
+        id: 45,
+        text: "You lunge at Oottat with nothing but your bare fists! She grabs onto your face and punches you with her tiny paws. As you raise your hands to defend the sides of you head, she takes BIG nom nom nom's out of your hands. You fall to the ground. Oottat leaves temporarily to fetch a baseball bat, and returns to beat you up even more. You die at the hands of the unSilly One. GAME OVER.",
+        options: [
+            {
+                text: "Restart.",
+                nextText: -1
+            },
+        ]
+    },
+    {
+        id: 46,
+        text: "You run as fast as you can to escape Oottat! As you flee, she takes a big nom out of your leg. Despite your limp, you manage to give Oottat the slip.",
+        options: [
+            {
+                text: "Heal yourself (Use the Scrummy Meal).",
+                requiredState: (currentState) => currentState.scrummyMeal,
+                setState: { legDamage: false, undamaged: true },
+                nextText: 47
+            },
+            {
+                text: "Search for Tattoo.",
+                nextText: 48
+            },
+        ]
+    },
+    {
+        id: 47,
+        text: "You eat some of your Scrummy Meal and it's SO scrummy! Your damaged leg heals rapidly and is as good as new!",
+        options: [
+            {
+                text: "Search for Tattoo.",
+                nextText: 48
+            },
+        ]
+    },
+    {
+        id: 48,
+        text: "You enter a corridor marked 'ENTRANCE WAY'. You can only go forward.",
+        options: [
+            {
+                text: "Go to CORRIDOR INTERSECTION.",
+                nextText: 49
+            }
+        ]
+    },
+    {
+        id: 49,
+        text: "You enter a corridor marked 'CORRIDOR INTERSECTION'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1A.",
+                nextText: 50
+            },
+            {
+                text: "Go to CORRIDOR 2A.",
+                nextText: 56
+            },
+        ]
+    },
+    {
+        id: 50,
+        text: "You enter a corridor marked 'CORRIDOR 1A'.",
+        options: [
+            {
+                text: "Go to CORRIDOR INTERSECTION.",
+                nextText: 49
+            },
+            {
+                text: "Go to ROOM.",
+                nextText: 51
+            },
+            {
+                text: "Go CORRIDOR 1B.",
+                nextText: 52
+            },
+        ]
+    },
+    {
+        id: 51,
+        text: "You enter a white-walled room, it almost looks like a hospital, or a laboratory.. A 7-foot-tall humanoid shape is suspended in the center by cables from the roof. Upon closer inspection it seems to be made of metal, with wires protruding from undeneath metal plates, and hydraulics within it's limbs. It lacks a face, instead having five 'petals' blooming from the head, making a flower-like shape around where the face would be. Tattoo doesn't seem to be in here.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1A.",
+                nextText: 50
+            },
+        ]
+    },
+    {
+        id: 52,
+        text: "You enter a corridor marked 'CORRIDOR 1B'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1A.",
+                nextText: 50
+            },
+            {
+                text: "Go to ROOM.",
+                nextText: 62
+            },
+            {
+                text: "Go to CORRIDOR 1C.",
+                nextText: 53
+            },
+        ]
+    },
+    {
+        id: 53,
+        text: "You enter a corridor marked 'CORRIDOR 1C'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1B.",
+                nextText: 52
+            },
+            {
+                text: "Go to CORRIDOR 1D.",
+                nextText: 54
+            },
+        ]
+    },
+    {
+        id: 54,
+        text: "You enter a corridor marked 'CORRIDOR 1D'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1C.",
+                nextText: 53
+            },
+            {
+                text: "Go to CORRIDOR 1E.",
+                nextText: 55
+            },
+        ]
+    },
+    {
+        id: 55,
+        text: "You enter a corridor marked 'CORRIDOR 1E'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1D.",
+                nextText: 54
+            },
+            {
+                text: "Go to ROOM.",
+                nextText: 66
+            },
+        ]
+    },
+    {
+        id: 56,
+        text: "You enter a corridor marked 'CORRIDOR 2A'.",
+        options: [
+            {
+                text: "Go to CORRIDOR INTERSECTION.",
+                nextText: 49
+            },
+            {
+                text: "Go to CORRIDOR 2B.",
+                nextText: 57
+            },
+        ]
+    },
+    {
+        id: 57,
+        text: "You enter a corridor marked 'CORRIDOR 2B'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 2A.",
+                nextText: 56
+            },
+            {
+                text: "Go to CORRIDOR 3A.",
+                nextText: 58
+            },
+            {
+                text: "Go to CORRIDOR 2C.",
+                nextText: 59
+            },
+        ]
+    },
+    {
+        id: 58,
+        text: "You enter a corridor marked 'CORRIDOR 3A'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 2A.",
+                nextText: 57
+            },
+            {
+                text: "Go to ROOM.",
+                nextText: 65
+            },
+        ]
+    },
+    {
+        id: 59,
+        text: "You enter a corridor marked 'CORRIDOR 2C'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 2B.",
+                nextText: 57
+            },
+            {
+                text: "Go to CORRIDOR 2D.",
+                nextText: 60
+            },
+        ]
+    },
+    {
+        id: 60,
+        text: "You enter a corridor marked 'CORRIDOR 2D'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 2C.",
+                nextText: 59
+            },
+            {
+                text: "Go to CORRIDOR 2E.",
+                nextText: 61
+            },
+            {
+                text: "Go to ROOM.",
+                nextText: 64
+            },
+        ]
+    },
+    {
+        id: 61,
+        text: "You enter a corridor marked 'CORRIDOR 2E'.",
+        options: [
+            {
+                text: "Go to CORRIDOR 2D.",
+                nextText: 60
+            },
+            {
+                text: "Go to ROOM.",
+                nextText: 63
+            },
+        ]
+    },
+    {
+        id: 62,
+        text: "You enter a dark room. The wall on the other end is made of glass, with water filled to the top on the other side. It's some sort of large wall-long fish tank. Teal light illuminates the room. Within the tank, you can see a figure silhouetted by the water. They're around your height, around your size. As you tilt your head in curiosity. It tilts it's head too. It's definitely not a reflection. Something is in there. Tattoo doesn't seem to be in here.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1B.",
+                nextText: 52
+            },
+        ]
+    },
+    {
+        id: 63,
+        text: "You enter the room and see a locked door with a window.",
+        options: [
+            {
+                text: "Look through the window.",
+                nextText: 69
+            },
+        ]
+    },
+    {
+        id: 64,
+        text: "You enter a room that looks like the inside of a vault. At the center of the room is a podium, with a section of a wall propped up on it. The wall has old wallpaper on it, and seems to be taken from a house of some kind. A small, square-sized door is at the bottom-middle of the wall. It has no door handle, just a key hole. You walk around the podium to see that the door doesn't lead anywhere on the other side, but you swear you can hear a voice faintly humming a tune from the door. Tattoo doesn't seem to be in here.",
+        options: [
+            {
+                text: "Go to CORRIDOR 2D.",
+                nextText: 60
+            },
+        ]
+    },
+    {
+        id: 65,
+        text: "You enter a room that looks like a garage. Between several Oottat-sized workbench, a car is parked, with a cloak covering it. There are a pair of scorch marks parallel to each other across the floor of the room. Tattoo doesn't seem to be in here.",
+        options: [
+            {
+                text: "Go to CORRIDOR 3A",
+                nextText: 58
+            },
+        ]
+    },
+    {
+        id: 66,
+        text: "You enter a room that appears to be an armoury. The walls are lined with weapon racks with weapons on them. You don't recognise many, but one does stand out. Between an egg-whisk-esk blaster, and a can marked 'Fake Soft Food', a headband with a purple crystal attached dangles from a hook. Tattoo doesn't seem to be in here.",
+        options: [
+            {
+                text: "Go to CORRIDOR 1E.",
+                nextText: 55
+            },
+        ]
+    },
+    {
+        id: 67,
+        text: "You open the Soft Food can and lunge at her, throwing Soft Food everywhere! As she tries to jump and grab at you, she is covered in Soft Food. Steam rises out of her fur and she screams a blood-curling scream. She runs off into the darkness, cursing at you as she does. She's gone, for now.",
+        options: [
+            {
+                text: "Search for Tattoo.",
+                nextText: 48
+            },
+            {
+                text: "Search for Tattoo (Use Soft Food).",
+                nextText: 68
+            },
+        ]
+    },
+    {
+        id: 68,
+        text: "You open the Soft Food can again and let the smell of it waft through the lair. You hear a faint 'Meow !' from far away. You run towards the noise until you reach a locked door. There's a window on the door.",
+        options: [
+            {
+                text: "Look through the window.",
+                nextText: 69
+            },
+        ]
+    },
+    {
+        id: 69,
+        text: "Looking peer through the window in the door to see a small, fluffy bear with white fur and black spots curled up on the floor on the other side.",
+        options: [
+            {
+                text: "Say 'Tattoo?'.",
+                nextText: 70
+            },
+        ]
+    },
+    {
+        id: 70,
+        text: "The bear perks up, recognising your voice. She looks over with her beautiful green eyes and smiles. It's Tattoo!! She gets up and runs over to the door. She sits in front of it, staring up at you. She says 'Meow!'.",
+        options: [
+            {
+                text: "Find a way to open the door.",
+                nextText: 71
+            },
+        ]
+    },
+    {
+        id: 71,
+        text: "To the right of the door is a line of six dials. Law doesn't quite know how to code the puzzle she has in mind for this, but don't worry, she'll explain how it was meant to work after you're done playing. You have two options below instead.",
+        options: [
+            {
+                text: "Punch the puzzle.",
+                setState: { handDamage: true, undamaged: false },
+                nextText: 72
+            },
+            {
+                text: "Solve the puzzle (Use Seeing Stone).",
+                requiredState: (currentState) => currentState.seeingStone,
+                nextText: 73
+            },
+        ]
+    },
+    {
+        id: 72,
+        text: "You punch the puzzle extremely hard. It hurts your hand badly, but the door unlocks.",
+        options: [
+            {
+                text: "Heal yourself (Use Scrummy Meal).",
+                requiredState: (currentState) => currentState.scrummyMeal,
+                setState: { handDamage: false, undamaged: true },
+                nextText: 73
+            },
+            {
+                text: "Open the door.",
+                nextText: 75
+            },
+        ]
+    },
+    {
+        id: 73,
+        text: "You eat some of your Scrummy Meal and it's SO scrummy! Your hand heals rapidly. As good as new!",
+        options: [
+            {
+                text: "Open the door.",
+                nextText: 75
+            },
+        ]
+    },
+    {
+        id: 74,
+        text: "You look through the Seeing Stone and it unveils the solution to the puzzle to you! You twist the dials into the correct position and the door unlocks.",
+        options: [
+            {
+                text: "Open the door.",
+                nextText: 75
+            },
+        ]
+    },
+    {
+        id: 75,
+        text: "You open the door and Tattoo jumps up into your arms! You cuddle her tightly and she nuzzles her little head into your neck, purring affectionately.",
+        options: [
+            {
+                text: "Go home.",
+                nextText: 76
+            },
+        ]
+    },
+    {
+        id: 76,
+        text: "You turn around and go back the way you came. As you return to the main chamber of the lair, Oottat jumps down from the rafters high above and lands infront of you! She's got a headband on, with a purple crystal of some kind at the front. 'You can't take her! I need her! I have goals beyond your understanding, stinky one. And I can't acomplish them without her! Hand her over and I'll let you leave here alive!'.",
+        options: [
+            {
+                text: "Hand Tattoo over.",
+                nextText: 77
+            },
+            {
+                text: "Fight Oottat.",
+                nextText: 78
+            },
+            {
+                text: "Fight Oottat (Use Soft Food).",
+                requiredState: (currentState) => currentState.softFood,
+                nextText: 79
+            },
+            {
+                text: "Flee Oottat.",
+                requiredState: (currentState) => currentState.legDamage,
+                requiredState: (currentState) => currentState.handDamage,
+                nextText: 80
+            },
+            {
+                text: "Flee Oottat.",
+                requiredState: (currentState) => currentState.undamaged,
+                nextText: 81
+            },
+        ]
+    },
+    {
+        id: 77,
+        text: "Not wanting to fuck about with Oottat again, you decide to hand Tattoo over to Oottat. Oottat smiles evilly and says 'I can't believe you actually handed Tattoo over! How heartless! I respect that though, however. You are free to leave.'. You go back to your home without Tattoo, you monster. THE END. THE EVIL ENDING. ENDING ONE OF FOUR.",
+        options: [
+            {
+                text: "Play Again!",
+                nextText: -1
+            },
+        ]
+    },
+    {
+        id: 78,
+        text: "You set Tattoo down and charge at Otttat! The crystal in her headband glows brightly. 'Courtesy of all the cuteness I've harvested from Tattooo, I have crafted this crystal in my headband! It's an anti-Ria crystal! It channels energy that destroys yellow!' a beam of purple energy fires from the crystal and hits you square in the chest. All the yellow in your clothing disappears and you disappear into nothing. GAME OVER.",
+        options: [
+            {
+                text: "Restart.",
+                nextText: -1
+            },
+        ]
+    },
+    {
+        id: 79,
+        text: "You set Tattoo down and open the can of Soft Food. You chuck it and it covers Oottat entirely. She bursts into flames and fire and yells 'Noooooo!'. The crystal in her headband goes haywire and fires several beams of red energy into the roof supports. As she flails around, you carry Tattoo and both run out of the lair. The building collapses behind you both. Oottat has been defeated! You both return home, and snuggle together! Tattoo gets lots of Soft Food, Wet Food, and Hard Food as a treat! Oottat is gone forever... But for how long? THE END. THE GOOD ENDING. ENDING TWO OF FOUR.",
+        options: [
+            {
+                text: "Play Again!",
+                nextText: -1
+            },
+        ]
+    },
+    {
+        id: 80,
+        text: "You do your best to dash past Oottat but the damage that's been done to your leg and hand is too much. As you burst out of the front door, a beam of purple energy shoots into your back. You fall to the ground. Tattoo gives you a big cuddle. As you disappear into nothing, Tattoo runs off into the wilderness that is Toronto! Tattoo has escaped but is on the run, and Oottat is still after her... THE END. THE NEUTRAL ENDING. ENDING THREE OF FOUR.",
+        options: [
+            {
+                text: "Play Again!",
+                nextText: -1
+            },
+        ]
+    },
+    {
+        id: 81,
+        text: "You dash past Oottat, who fires several beams of purple energy at you. You dodge and weave and burst out through the front door. After making your way down the street, you consider your options. You can't go home, Oottat knows where you live. You'll have to live on the run from now on. But where could you go? Oottat can search all across Toronto for you! There's only one last option, one place that would take Oottat a very long time to catch up to you. You pull out your phone and book the next plane to the UK... THE END. THE TRUE ENDING. FOUR OF FOUR.",
+        options: [
+            {
+                text: "Play Again!",
+                nextText: -1
+            },
+        ]
+    },
 ]
 
 startGame()
