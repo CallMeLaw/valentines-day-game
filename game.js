@@ -989,7 +989,7 @@ const textNodes = [
             {
                 text: "Solve the puzzle (Use Seeing Stone).",
                 requiredState: (currentState) => currentState.seeingStone,
-                nextText: 73
+                nextText: 74
             },
         ]
     },
